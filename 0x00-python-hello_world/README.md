@@ -2,7 +2,7 @@
  ## Description
 What you should learn from this project: b''
 
-“*” b'Why Python programming is awesome (don\xe2\x80\x99t forget to tweet today, with the hashtag #pythoniscool :))'
+* b'Why Python programming is awesome (don\xe2\x80\x99t forget to tweet today, with the hashtag #pythoniscool :))'
 “*” b'Who created Python'
 “*” b'Who is Guido van Rossum'
 “*” b'Where does the name \xe2\x80\x98Python\xe2\x80\x99 come from'
