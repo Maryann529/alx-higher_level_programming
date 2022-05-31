@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-
-
 def uppercase(str):
-        """ Prints a string in uppercase (followed by a newline) """
-        print("{}".format(str.translate(
-            {(c | 32): c for c in range(ord('A'), ord('Z') + 1)}
-        )))
+    new_str = ""
+    for i in range(len(str)):
+        if (ord(str[i]) >= 97 and ord(str[i]) <= 122):
+            new_str += chr(ord(str[i]) - 32)
+            continue
+        new_str += str[i]
+
+    print('{0}'.format(new_str))
