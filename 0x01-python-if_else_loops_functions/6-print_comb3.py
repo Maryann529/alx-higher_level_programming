@@ -1,4 +1,8 @@
 #!/usr/bin/python3
-print(*(', '.join(
-        "{}{}".format(tens, ones) for ones in range(tens+1, 10)
-            ) for tens in range(9)), sep=', ')
+for i in range(10):
+    for j in range(10):
+        if (i != j and i < j) and i < 9:
+            if (i == 8 and j == 9):
+                print('{0}{1}'.format(i, j))
+            else:
+                print('{0}{1}, '.format(i, j), end='')
