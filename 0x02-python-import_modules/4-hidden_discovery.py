@@ -1,14 +1,10 @@
 #!/usr/bin/python3
-import hidden_4
 
-if __name__ == '__main__':
-    def_names = dir(hidden_4)
+import hidden_4 as hidden
 
-    for i in range(len(def_names)):
-        if def_names[i][:2] != '__':
-            print(def_names[i])
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
+
+if __name__ == "__main__":
+
+    for name in dir(hidden):
+        if not name.startswith('__'):
+            print(name)
