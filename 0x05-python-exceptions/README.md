@@ -1,4 +1,5 @@
-+ # 0x05. Python - Exceptions
+'''diff
+- # 0x05. Python - Exceptions -
 
 ## Description
 
