@@ -25,4 +25,4 @@ What you should learn from this project:
 * Since the beginning you have been creating “Interactive tests”. For this exercise, you will add Unittests.
 
 ## Author
-Maryann Unoarumi - Maryann529
+  * Maryann Unoarumi - Maryann529
