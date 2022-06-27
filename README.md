@@ -3,7 +3,10 @@
   This repository stores my solutions to the amazing high-level programming projects I did, most projects are written in Python programming language, but some projects contain something in C and SQL programming language.
   
   
-![image](https://user-images.githubusercontent.com/99491833/175942349-1c20b98f-4ebc-4234-a920-a2467e38d88a.png)
+  
+          ![image](https://user-images.githubusercontent.com/99491833/175942349-1c20b98f-4ebc-4234-a920-a2467e38d88a.png)
+
+
 
 ### Table of contents
 
@@ -45,3 +48,6 @@ Here is the complete list of projects in this repository, each project has its d
 
 ### Usage
 Each project and task contains the instructions to compile the code and execute the results.
+
+## Author
+  * Maryann Unoarumi - Maryann529
