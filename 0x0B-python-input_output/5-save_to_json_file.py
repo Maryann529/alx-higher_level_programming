@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-from json import dumps
+"""Provides a function to write a JSON repr. of an object to a file"""
+
+import json
 
 
 def save_to_json_file(my_obj, filename):
-    with open(filename, mode='w', encoding='utf-8') as f:
-        f.write(dumps(my_obj))
+    """Write the JSON representation of an object to a file"""
+    with open(filename, 'w') as ostream:
+        return json.dump(my_obj, ostream)
