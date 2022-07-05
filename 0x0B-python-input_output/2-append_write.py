@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""Provides a function to append text to a file"""
+
+
 def append_write(filename="", text=""):
-    with open(filename, mode='a', encoding='utf-8') as f:
-        return f.write(text)
+    """Append text to a file"""
+    with open(filename, 'a') as ostream:
+        return ostream.write(text)
