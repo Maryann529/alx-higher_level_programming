@@ -1,25 +1,28 @@
 #!/usr/bin/python3
-"""Module 9-add_item.
-Adds all arguments to a Python list,
-and then save them to a file.
+"""
+This program take the file add_item.json, and add the
+parameters to the list inside this file.
+- If the file doesn't exist create it.
+- If no exist parameters do nothing or create the list if the file is empty.
 """
 
-import sys
-import json
-import os.path
+from sys import argv
+from os.path import exists
 
-save_to_json_file = __import__("7-save_to_json_file").save_to_json_file
-load_from_json_file = __import__("8-load_from_json_file").load_from_json_file
+save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
+load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 
-my_file = 'add_item.json'
+namefile = "add_item.json"
+argc = len(argv)
 
-my_list = []
+file_list = []
 
-if os.path.exists(my_file) and os.path.getsize(my_file) > 0:
-    my_list = load_from_json_file(my_file)
+if exists(namefile):
+    file_list = load_from_json_file(namefile)
 
-if len(sys.argv) > 1:
-    for elem in sys.argv[1:]:
-        my_list.append(elem)
-
-save_to_json_file(my_list, my_file)
+if (argc == 1):
+    save_to_json_file(file_list, namefile)
+else:
+    for index in range(1, argc):
+        file_list.append(argv[index])
+    save_to_json_file(file_list, namefile)
