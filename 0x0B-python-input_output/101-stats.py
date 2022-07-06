@@ -1,39 +1,42 @@
 #!/usr/bin/python3
-""" Read lines from standard input and compute metrics
-Input Format:
-<IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>
+"""
+Module for log parsing scripts.
 """
 
-from collections import defaultdict
-from sys import stdin, exit as sysexit
 
-STATUS_CODES = ['200', '301', '400', '401', '403', '404', '405', '500']
+import sys
 
 
-def print_stats(file_size, status_codes):
-    print("File size: {}".format(total_size), *(
-        "{}: {}".format(k, status_codes[k]) for k in sorted(status_codes)
-    ), sep="\n")
+if __name__ == "__main__":
+    size = [0]
+    codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 
-
-if __name__ == '__main__':
-    status_codes = defaultdict(lambda: 0)
-    total_size = 0
-    line_count = 0
-    while True:
+    def check_match(line):
+        '''Checks for regexp match in line.'''
         try:
-            for _ in range(10):
-                line = stdin.readline()
-                if line:
-                    *_, status_code, file_size = line.split()
-                    if status_code in STATUS_CODES:
-                        status_codes[status_code] += 1
-                    total_size += int(file_size)
-                else:
-                    if total_size:
-                        print_stats(file_size, status_codes)
-                    sysexit(0)
-            print_stats(file_size, status_codes)
-        except KeyboardInterrupt:
-            print_stats(file_size, status_codes)
-            raise
+            line = line[:-1]
+            words = line.split(" ")
+            size[0] += int(words[-1])
+            code = int(words[-2])
+            if code in codes:
+                codes[code] += 1
+        except Exception as e:
+            pass
+
+    def print_stats():
+        '''Prints accumulated statistics.'''
+        print("File size: {}".format(size[0]))
+        for k in sorted(codes.keys()):
+            if codes[k]:
+                print("{}: {}".format(k, codes[k]))
+    i = 1
+    try:
+        for line in sys.stdin:
+            check_match(line)
+            if i % 10 == 0:
+                print_stats()
+            i += 1
+    except KeyboardInterrupt:
+        print_stats()
+        raise
+    print_stats()
